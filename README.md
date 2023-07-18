@@ -28,3 +28,10 @@ Fallback resource settings for X11 applications, `.Xresources` overrides them
 ### xinitrc
 Sets desktop session environment variables, runs `ude-setup-xdg-global` and `ude-setup-user-dirs`, loads X11 resources, user
 keyboard layouts and launches the UDE session(currently not implemented)
+
+
+### Dependencies
+This scripts depends on the following applications:
+1. `xrdb`
+1. `xdg-user-dirs-update`
+1. `xorg`
