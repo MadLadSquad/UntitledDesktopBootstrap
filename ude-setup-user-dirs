@@ -5,7 +5,7 @@ cd "${HOME}" || exit
 xdg-user-dirs-update
 
 # Create standard somewhat legacy directories
-mkdir -p .theme/ .icons/ .fonts/ .var/app/ .local/bin
+mkdir -p .themes/ .icons/ .fonts/ .var/app/ .local/bin
 
 # Create new directories
 if test -z "${XDG_DATA_HOME}"; then
