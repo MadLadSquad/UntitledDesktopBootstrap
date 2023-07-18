@@ -9,12 +9,12 @@ if test -z "$XDG_CURRENT_DESKTOP"; then
 	export XDG_CURRENT_DESKTOP
 fi
 
-ude-setup-xdg-global
+xftdir=$(ude-setup-xdg-global)
 ude-setup-user-dirs
 
 # Preparing and loading X resources from here
 XRESOURCES=""
-test -r "/etc/xdg/UntitledDesktop/Xft.xrdb" && XRESOURCES="$XRESOURCES /etc/xdg/UntitledDesktop/Xft.xrdb"
+test -r "$xftdir/Xft.xrdb" && XRESOURCES="$XRESOURCES /etc/xdg/UntitledDesktop/Xft.xrdb"
 test -r "$HOME/.Xdefaults" && XRESOURCES="$XRESOURCES $HOME/.Xdefaults"
 
 HOMECONFIGDIR="$XDG_CONFIG_HOME"/UntitledDesktop
