@@ -13,6 +13,7 @@ if test -z "${XDG_DATA_HOME}"; then
 	echo "XDG_DATA_HOME environment variable does not exist, creating default directories. Make sure to add the following export directive to your .bashrc or other shell startup file:"
 	echo "export XDG_DATA_HOME=\"\$HOME/.local/share\""
 	echo " "
+	export XDG_DATA_HOME="$HOME/.local/share"
 else
 	mkdir -p "${XDG_DATA_HOME}"/mime "${XDG_DATA_HOME}"/icons "${XDG_DATA_HOME}"/Trash "${XDG_DATA_HOME}"/applications "${XDG_DATA_HOME}"/backgrounds "${XDG_DATA_HOME}"/fonts "${XDG_DATA_HOME}"/sounds
 fi
@@ -22,6 +23,7 @@ if test -z "${XDG_CONFIG_HOME}"; then
 	echo "XDG_CONFIG_HOME environment variable does not exist, creating default directories. Make sure to add the following export directive to your .bashrc or other shell startup file:"
 	echo "export XDG_CONFIG_HOME=\"\$HOME/.config\""
 	echo " "
+	export XDG_CONFIG_HOME="$HOME/.config"
 fi
 
 if test -z "${XDG_STATE_HOME}"; then
@@ -29,6 +31,7 @@ if test -z "${XDG_STATE_HOME}"; then
 	echo "XDG_STATE_HOME environment variable does not exist, creating default directories. Make sure to add the following export directive to your .bashrc or other shell startup file:"
 	echo "export XDG_STATE_HOME=\"\$HOME/.local/state\""
 	echo " "
+	export XDG_STATE_HOME="$HOME/.local/state"
 fi
 
 if test -z "${XDG_CACHE_HOME}"; then
@@ -36,4 +39,5 @@ if test -z "${XDG_CACHE_HOME}"; then
 	echo "XDG_CACHE_HOME environment variable does not exist, creating default directories. Make sure to add the following export directive to your .bashrc or other shell startup file:"
 	echo "export XDG_CACHE_HOME=\"\$HOME/.cache\""
 	echo " "
+	export XDG_CACHE_HOME="$HOME/.cache"
 fi
