@@ -1,0 +1,39 @@
+#!/bin/sh
+cd "${HOME}" || exit
+
+# This creates directories such as ~/Downloads with localisation
+xdg-user-dirs-update
+
+# Create standard somewhat legacy directories
+mkdir -p .theme/ .icons/ .fonts/ .var/app/ .local/bin
+
+# Create new directories
+if test -z "${XDG_DATA_HOME}"; then
+	mkdir -p .local/share/mime .local/share/icons .local/share/Trash .local/share/applications .local/share/backgrounds .local/share/fonts .local/share/sounds
+	echo "XDG_DATA_HOME environment variable does not exist, creating default directories. Make sure to add the following export directive to your .bashrc or other shell startup file:"
+	echo "export XDG_DATA_HOME=\"\$HOME/.local/share\""
+	echo " "
+else
+	mkdir -p "${XDG_DATA_HOME}"/mime "${XDG_DATA_HOME}"/icons "${XDG_DATA_HOME}"/Trash "${XDG_DATA_HOME}"/applications "${XDG_DATA_HOME}"/backgrounds "${XDG_DATA_HOME}"/fonts "${XDG_DATA_HOME}"/sounds
+fi
+
+if test -z "${XDG_CONFIG_HOME}"; then
+	mkdir -p .config
+	echo "XDG_CONFIG_HOME environment variable does not exist, creating default directories. Make sure to add the following export directive to your .bashrc or other shell startup file:"
+	echo "export XDG_CONFIG_HOME=\"\$HOME/.config\""
+	echo " "
+fi
+
+if test -z "${XDG_STATE_HOME}"; then
+	mkdir -p .local/state
+	echo "XDG_STATE_HOME environment variable does not exist, creating default directories. Make sure to add the following export directive to your .bashrc or other shell startup file:"
+	echo "export XDG_STATE_HOME=\"\$HOME/.local/state\""
+	echo " "
+fi
+
+if test -z "${XDG_CACHE_HOME}"; then
+	mkdir -p .cache
+	echo "XDG_CACHE_HOME environment variable does not exist, creating default directories. Make sure to add the following export directive to your .bashrc or other shell startup file:"
+	echo "export XDG_CACHE_HOME=\"\$HOME/.cache\""
+	echo " "
+fi

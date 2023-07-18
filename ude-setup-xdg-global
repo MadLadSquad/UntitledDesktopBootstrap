@@ -1,0 +1,26 @@
+#!/bin/sh
+if test -z "$XDG_DATA_DIRS"; then
+	XDG_DATA_DIRS="/usr/share:/usr/local/share"
+else
+	XDG_DATA_DIRS="$XDG_DATA_DIRS:/usr/share"
+fi
+export XDG_DATA_DIRS
+
+if test -z "$XDG_CONFIG_DIRS"; then
+	XDG_CONFIG_DIRS="/etc/xdg"
+else
+	XDG_CONFIG_DIRS="$XDG_CONFIG_DIRS:/etc/xdg"
+fi
+export XDG_CONFIG_DIRS
+
+IFS=":"
+for val in "$XDG_CONFIG_DIRS"; do
+	# $1 is the first CLI argument, this is used as a prefix for installation by package managers i.e. portage, where there is a sandbox
+	# In portage's case $1 needs to be equal to $ED for it to be correctly installed, it will later be merged correctly.
+	#
+	# Redirect to /dev/null because normal user profiles will not be able to create /etc/xdg directories, which will result in an error message
+	# getting printed
+	mkdir -p "$1/$val"/UntitledDesktopEnvironment &> /dev/null
+	echo "$1/$val/UntitledDesktopEnvironment/"
+	break
+done
