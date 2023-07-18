@@ -10,7 +10,7 @@ if test -z "$XDG_CURRENT_DESKTOP"; then
 fi
 
 ude-setup-xdg-global
-ude-setup-userdirs
+ude-setup-user-dirs
 
 # Preparing and loading X resources from here
 XRESOURCES=""
