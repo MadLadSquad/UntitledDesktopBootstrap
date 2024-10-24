@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 # $1 is the first CLI argument, this is used as a prefix for installation by package managers i.e. portage, where there is a sandbox
 # In portage's case $1 needs to be equal to $ED for it to be correctly installed, it will later be merged correctly
 registryDir=$(./ude-setup-xdg-global "$1")
